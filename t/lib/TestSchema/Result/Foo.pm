@@ -14,12 +14,12 @@ __PACKAGE__->add_columns(
         is_auto_increment => 1,
     },
     passphrase_rfc2307 => {
-        data_type  => 'text',
-        passphrase => 'rfc2307',
+        data_type          => 'text',
+        inflate_passphrase => 'rfc2307',
     },
     passphrase_crypt => {
-        data_type  => 'text',
-        passphrase => 'crypt',
+        data_type          => 'text',
+        inflate_passphrase => 'crypt',
     },
 );
 

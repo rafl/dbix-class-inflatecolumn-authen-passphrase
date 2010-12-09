@@ -10,7 +10,7 @@ sub register_column {
     my ($self, $column, $info, @rest) = @_;
 
     $self->next::method($column, $info, @rest);
-    return unless my $encoding = $info->{passphrase};
+    return unless my $encoding = $info->{inflate_passphrase};
 
     $self->throw_exception(q['rfc2307' and 'crypt' are the only supported types of passphrase columns])
         unless $encoding eq 'rfc2307' || $encoding eq 'crypt';
