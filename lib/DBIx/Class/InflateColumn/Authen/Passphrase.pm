@@ -47,6 +47,16 @@ C<Authen::Passphrase> instances in columns, and when creating
 C<Authen::Passphrase> instances from columns. See L<Authen::Passphrase> for
 details on passphrase encodings.
 
+Note that not all passphrase schemes supported by C<Authen::Passphrase> can be
+represented in either RFC 2307 or crypt encoding. Chose the kind of passphrase
+encoding you're using based on the encoding the passphrase algorithms you're
+using support.
+
+When trying to encode a passphrase instance with an encoding that doesn't
+support it, an exception will be thrown. Similarly, when trying to load a
+passphrase instance from a faulty or unknown encoded representation, an
+exception will be thrown.
+
 =method register_column
 
 Chains with the C<register_column> method in C<DBIx::Class::Row>, and sets up
